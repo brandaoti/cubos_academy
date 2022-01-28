@@ -1,5 +1,4 @@
-import 'dart:ui';
-
+import 'package:cubos_academy/perfil.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,17 +20,28 @@ class _HomeScreenState extends State<HomeScreen> {
           'HomeScreen',
         ),
       ),
-      body: home(),
+      body: Column(
+        children: [
+          Center(
+            child: SizedBox(
+              height: 300,
+              width: 300,
+              child: Image.asset('assets/images/home.png'),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (cnt) => Profile(),
+                ),
+              );
+            },
+            style: ElevatedButton.styleFrom(primary: Colors.red),
+            child: Text('Perfil'),
+          )
+        ],
+      ),
     );
   }
-}
-
-Widget home() {
-  return Center(
-    child: SizedBox(
-      height: 300,
-      width: 300,
-      child: Image.asset('assets/images/home.png'),
-    ),
-  );
 }
