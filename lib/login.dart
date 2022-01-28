@@ -1,3 +1,4 @@
+import 'package:cubos_academy/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -47,20 +48,23 @@ class Login extends StatelessWidget {
 
             const SizedBox(height: 8.0),
 
-            _btnLogin(),
+            ElevatedButton(
+              child: const Text('Login'),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green,
+              ),
+              onPressed: () {
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                    builder: (contex) => HomeScreen(),
+                  ),
+                  (_) => false,
+                );
+              },
+            ),
           ],
         ),
       ),
-    );
-  }
-
-  Widget _btnLogin() {
-    return ElevatedButton(
-      child: const Text('Login'),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.green,
-      ),
-      onPressed: () {},
     );
   }
 
